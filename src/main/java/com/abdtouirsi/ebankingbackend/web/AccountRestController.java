@@ -1,9 +1,10 @@
 package com.abdtouirsi.ebankingbackend.web;
 
-import com.abdtouirsi.ebankingbackend.dtos.AccountHistoryDto;
-import com.abdtouirsi.ebankingbackend.dtos.AccountOperationDto;
-import com.abdtouirsi.ebankingbackend.dtos.BankAccountDto;
+import com.abdtouirsi.ebankingbackend.dtos.*;
+import com.abdtouirsi.ebankingbackend.entities.BankAccount;
+import com.abdtouirsi.ebankingbackend.exceptions.BalanceNotSufficentException;
 import com.abdtouirsi.ebankingbackend.exceptions.BankAccountNotFoundException;
+import com.abdtouirsi.ebankingbackend.exceptions.CostumerNotFoundException;
 import com.abdtouirsi.ebankingbackend.services.BankAccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -32,5 +33,27 @@ public class AccountRestController {
                                                @RequestParam(name = "page",defaultValue = "0") int page,
                                                @RequestParam(name = "size",defaultValue = "10") int size) throws BankAccountNotFoundException {
         return bankAccountService.getAccountHistory(id,page,size);
+    }
+    @PostMapping("/bank-accounts/debit")
+    private DebitDto debit(@RequestBody DebitDto debitDto) throws BankAccountNotFoundException, BalanceNotSufficentException {
+        this.bankAccountService.debit(debitDto.getAccountID(),debitDto.getAmount(),debitDto.getDescription());
+        return debitDto;
+    }
+    @PostMapping("/bank-accounts/credit")
+    private CreditDto credit(@RequestBody CreditDto creditDto) throws BankAccountNotFoundException {
+        this.bankAccountService.credit(creditDto.getAccountID(),creditDto.getAmount(),creditDto.getDescription());
+        return creditDto;
+    }
+    @PostMapping("/bank-accounts/transfer")
+    private void transfer(@RequestBody TransferRequestDto transferDto) throws BankAccountNotFoundException, BalanceNotSufficentException {
+        this.bankAccountService.transfer(transferDto.getSourceAccountId(),
+                transferDto.getTargetAccountId(),
+                transferDto.getAmount());
+
+    }
+    //account by customer
+    @GetMapping("/bank-accounts/customer/{customerId}")
+    public List<BankAccountDto> getBankAccountsByCustomer(@PathVariable Long customerId) {
+        return bankAccountService.getBankAccountsByCustomer(customerId);
     }
 }

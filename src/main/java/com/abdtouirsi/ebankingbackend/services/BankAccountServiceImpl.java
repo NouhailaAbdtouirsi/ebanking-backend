@@ -166,7 +166,7 @@ public class BankAccountServiceImpl implements BankAccountService {
         if(bankAccount==null)
             throw new BankAccountNotFoundException("Bank account not found");
 
-        Page<AccountOperation> byBankAccountId = accountOperationRepository.findByBankAccountId(id, PageRequest.of(page, size));
+        Page<AccountOperation> byBankAccountId = accountOperationRepository.findByBankAccountIdOrderByOperationDateDesc(id, PageRequest.of(page, size));
         AccountHistoryDto accountHistoryDto = new AccountHistoryDto();
         List<AccountOperationDto> accountOperationDto = byBankAccountId.getContent().stream().map(accountOperation -> bankAccountMapper.fromAccountOperation(accountOperation)).collect(Collectors.toList());
         accountHistoryDto.setOperations(accountOperationDto);
@@ -184,6 +184,20 @@ public class BankAccountServiceImpl implements BankAccountService {
         List<Customer> customers = costumerRepository.searchCustomer(keyword);
         return customers.stream().map(
                 cust -> bankAccountMapper.fromCustomer(cust)
+        ).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<BankAccountDto> getBankAccountsByCustomer(Long customerId) {
+        Customer customer = costumerRepository.findById(customerId).orElse(null);
+        List<BankAccount> bankAccounts = bankAccountRepository.findByCustomer(customer);
+        return bankAccounts.stream().map(
+                bankAccount -> {
+                    if(bankAccount instanceof CurrentAccount)
+                        return bankAccountMapper.fromCurrentAccount((CurrentAccount) bankAccount);
+                    else
+                        return bankAccountMapper.fromSavingAccount((SavingAccount) bankAccount);
+                }
         ).collect(Collectors.toList());
     }
 
