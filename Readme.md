@@ -16,6 +16,11 @@ Ce projet est une application web pour la gestion des clients et de leurs compte
 - Opérations sur les comptes (Débit, Crédit, Transfert)
 - Fonctionnalité de recherche
 - Interface utilisateur réactive
+## Diagramme de classe
+<img src="Captures/class%20Diagramm.png" alt="class diag">
+
+## Architecture de l'application
+<img src="Captures/arch%20Diagramm.png" alt="arch">
 
 ## Backend
 
@@ -52,8 +57,8 @@ Le frontend du projet de banque digitale est développé en utilisant le framewo
 - `/admin/not-authorized` : Page de non-autorisation.
 
 ### Démo
-[Demo.mp4](Captures%2FDemo.mp4)
-
+[![Watch the video](https://github.com/NouhailaAbdtouirsi/ebanking-backend/blob/master/Captures/thumbnail.png)]
+(https://github.com/NouhailaAbdtouirsi/ebanking-backend/blob/master/Captures/Demo.mp4)
 ## Prise en Main
 
 Pour exécuter le projet de banque digitale localement, suivez ces étapes :
