@@ -52,8 +52,7 @@ Le frontend du projet de banque digitale est développé en utilisant le framewo
 - `/admin/not-authorized` : Page de non-autorisation.
 
 ### Démo
-
-[Demo.mkv](Captures%2FDemo.mkv)
+[Demo.mp4](Captures%2FDemo.mp4)
 
 ## Prise en Main
 
