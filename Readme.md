@@ -59,7 +59,6 @@ Le frontend du projet de banque digitale est développé en utilisant le framewo
 ### Démo
 [![Watch the video](https://github.com/NouhailaAbdtouirsi/ebanking-backend/blob/master/Captures/thumbnail.png)](https://github.com/NouhailaAbdtouirsi/ebanking-backend/blob/master/Captures/Demo.mp4)
 ## Prise en Main
-
 Pour exécuter le projet de banque digitale localement, suivez ces étapes :
 
 1. Clonez le dépôt.
