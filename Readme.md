@@ -61,15 +61,16 @@ Le frontend du projet de banque digitale est développé en utilisant le framewo
 ## Prise en Main
 Pour exécuter le projet de banque digitale localement, suivez ces étapes :
 
-1. Clonez le dépôt.
-2. Configurez le backend :
+1. Clonez le dépôt du backend
+2. Clonez le dépôt du frontend dans le lien suivant :https://github.com/NouhailaAbdtouirsi/e-banking-front
+3. Configurez le backend :
    - Installez Java et Maven.
    - Configurez la connexion à la base de données MySQL dans le fichier `application.properties`.
    - Construisez et exécutez l'application Spring Boot.
-3. Configurez le frontend :
+4. Configurez le frontend :
    - Installez Node.js et npm.
    - Installez Angular CLI globalement.
    - Installez les dépendances du projet en utilisant `npm install`.
    - Configurez le point de terminaison de l'API backend dans le fichier d'environnement.
    - Construisez et exécutez l'application Angular en utilisant `ng serve`.
-4. Accédez à l'application dans votre navigateur à l'adresse `http://localhost:4200`.
+5. Accédez à l'application dans votre navigateur à l'adresse `http://localhost:4200`.
