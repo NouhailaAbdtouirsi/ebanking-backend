@@ -57,7 +57,7 @@ Le frontend du projet de banque digitale est développé en utilisant le framewo
 - `/admin/not-authorized` : Page de non-autorisation.
 
 ### Démo
-[![Watch the video](https://github.com/NouhailaAbdtouirsi/ebanking-backend/blob/master/Captures/thumbnail.png)](https://github.com/NouhailaAbdtouirsi/ebanking-backend/blob/master/Captures/Demo.mp4)
+[![Watch the video](https://github.com/NouhailaAbdtouirsi/ebanking-backend/blob/master/Captures/thumbnail.png)](https://drive.google.com/file/d/1i7ckQ185Xn0ok6xvOA_7v7TOiAjYhfWU/view)
 ## Prise en Main
 Pour exécuter le projet de banque digitale localement, suivez ces étapes :
 
